@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Babushka Menu</title>
+
+
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c");
+        @import url("https://fonts.googleapis.com/css?family=Fjalla+One|M+PLUS+Rounded+1c");
+
+        html {
+            background-color: grey;
+        }
+
+        h1 {
+            font-family: 'Fjalla One', sans-serif;
+            text-align: center;
+        }
+
+        h2 {
+            font-family: 'M PLUS Rounded 1c', sans-serif;
+        }
+
+        p {
+            font-family: 'M PLUS Rounded 1c', sans-serif;
+        }
+
+        .ret-display {
+            display: grid;
+            border: 1px solid(3);
+            margin-right: 15px;
+            padding: 10px;
+            grid-gap: 10px;
+            text-align: center;
+        }
+
+        @media screen and (min-width: 1100px) {
+            .ret-display {
+
+                display: grid;
+
+                margin-right: 15px;
+                padding: 10px;
+                grid-gap: 10px;
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+
+        /*
+@media screen and (min-width: 800px) {
+.ret-display {
+
+grid-template-columns: repeat(4, 1fr);
+grid-gap: 10px;
+}
+
+}
+
+
+
+@media screen and (max-width: 425px) {
+.ret-display {
+
+grid-template-columns: repeat(3, 1fr);
+grid-gap: 10px;
+}
+
+}*/
+
+
+
+
+        #modal {
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(211, 206, 206, 0.7);
+            text-align: center;
+            /*            display: none;*/
+            position: fixed;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 1s;
+
+        }
+
+        #modal-content {
+            background-color: rgb(186, 186, 186);
+            width: 70vw;
+            height: 70vh;
+            margin: auto;
+
+        }
+
+        #modal.vis {
+            /*display: block;*/
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal-billede {
+            max-width: 300px;
+        }
+
+        nav button {
+            background-color: lightgray;
+            border: none;
+            border-radius: 2px;
+            display: inline-block;
+            margin: 5px;
+            padding: 10px 15px;
+            color: black;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        article {
+            background-color: lightgray;
+            padding: 10px;
+            border-radius: 2px;
+            margin: 10px;
+
+
+        }
+
+        header {
+            background-color: darkgray;
+            margin: 10px;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section id="modal">
+
+        <div id="modal-content">
+            <button>Close</button>
+            <h2 class="modal-navn"></h2>
+            <img class="modal-billede" src="" alt="">
+            <p class="modal-langbeskrivelse"></p>
+
+        </div>
+    </section>
+
+
+
+    <header>
+        <h1>Bistro Babushka</h1>
+        <h2>Menu</h2>
+        <nav>
+            <button class="menu-item" data-menu="forretter">Forretter</button>
+            <button class="menu-item" data-menu="hovedretter">Hovedretter</button>
+            <button class="menu-item" data-menu="desserter">Desserter</button>
+            <button class="menu-item" data-menu="drikkevarer">Drikkevarer</button>
+            <button class="menu-item" data-menu="sideorders">Sideorders</button>
+        </nav>
+    </header>
+
+
+    <section class="ret-display"> </section>
+
+
+
+
+
+
+    <template class="ret-template">
+        <article>
+            <h2 class="ret-navn"> </h2>
+            <img class="ret-billede" src="" alt="">
+            <p class="ret-kortbeskrivelse"> </p>
+            <p class="ret-pris"> </p>
+            <p class="ret-kategori"> </p>
+            <p class="ret-langbeskrivelse"> </p>
+            <p class="ret-id"> </p>
+            <p class="ret-kategori"> </p>
+            <p class="ret-oprindelsesregion"> </p>
+
+        </article>
+    </template>
+
+    <script>
+        let retter = [];
+        let kategoriFilter = "alle";
+
+
+        document.addEventListener("DOMContentLoaded", start);
+
+        function start() {
+            hentJson();
+            forberedFiltrering();
+
+        }
+
+        function forberedFiltrering() {
+            document.querySelectorAll("nav button").forEach(knap => {
+                knap.addEventListener("click", () => {
+
+
+                    kategoriFilter = knap.getAttribute("data-menu");
+                    visRetter();
+                });
+            });
+
+        }
+
+
+
+        async function hentJson() {
+            let jsonData = await fetch("json/menu.json");
+            retter = await jsonData.json();
+            visRetter();
+        }
+
+
+
+        function visRetter() {
+            // globale variabeler
+            let display = document.querySelector(".ret-display");
+            let temp = document.querySelector(".ret-template");
+
+            display.textContent = "";
+
+            retter.forEach(ret => {
+
+                if (ret.kategori == kategoriFilter || kategoriFilter == "alle") {
+                    console.log(ret.kategori, kategoriFilter);
+
+
+                    let klon = temp.cloneNode(true).content;
+
+
+                    klon.querySelector("h2").textContent = ret.navn;
+                    klon.querySelector(".ret-billede").src = "small/" + ret.billede + "-sm.jpg";
+                    ret.billede.jpg;
+
+                    klon.querySelector("img").addEventListener("click", () => {
+                        visModal(ret);
+                    });
+
+                    klon.querySelector(".ret-billede").alt = "billede af" + ret.navn;
+                    klon.querySelector(".ret-kortbeskrivelse").textContent = ret.kortbeskrivelse;
+                    klon.querySelector(".ret-pris").textContent = "Pris: " + ret.pris + ",-";
+
+
+                    display.appendChild(klon);
+                }
+            });
+        }
+
+        function visModal(retten) {
+            let modal = document.querySelector("#modal");
+            modal.classList.add("vis");
+            modal.querySelector(".modal-navn").textContent = retten.navn;
+            modal.querySelector(".modal-billede").src = "small/" + retten.billede + "-sm.jpg";
+            retten.billede;
+            modal.querySelector(".modal-billede").alt = "Foto af" + retten.navn;
+
+
+            modal.querySelector(".modal-langbeskrivelse").textContent = retten.langbeskrivelse;
+
+
+            modal.querySelector("button").addEventListener("click", () => {
+                modal.classList.remove("vis");
+
+
+            });
+        }
+    </script>
+
+
+    <footer>
+        <p> Michelle Bang Rosendal</p>
+    </footer>
+
+</body>
+
+</html>

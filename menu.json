@@ -1,0 +1,86 @@
+[
+    {
+        "kategori": "dessert",
+        "navn": "Fransk toast med ost og blåbærkompot",
+        "pris": 80,
+        "kortbeskrivelse": "Det er Fransk og det er tååst.",
+        "billede": "dessert1"
+  },
+    {
+        "kategori": "forret",
+        "navn": "Vagtel med hvide asparges og ramsløg",
+        "pris": 120,
+        "kortbeskrivelse": "Aner ikke hvad vagtel er, men det er sikkert godt!",
+        "billede": "forret1"
+  },
+    {
+        "kategori": "hovedret",
+        "navn": "Kaninragout med tomat og peberfrugt",
+        "pris": 120,
+        "kortbeskrivelse": "Er det kanin?!",
+        "billede": "hovedret1"
+  },
+    {
+        "kategori": "forret",
+        "navn": "Salade Nicoise",
+        "pris": 70,
+        "kortbeskrivelse": "Ja det lyder jo meget fint.",
+        "billede": "forret2"
+  },
+    {
+        "kategori": "hovedret",
+        "navn": "Poussiner og lun kartoffelsalat med honning og sennep",
+        "pris": 130,
+        "kortbeskrivelse": "Kartoffelsalat det er jo lækkert.",
+        "billede": "hovedret2"
+  },
+    {
+        "kategori": "dessert",
+        "navn": "Crepes suzette",
+        "pris": 60,
+        "kortbeskrivelse": "Uhhh pandekager!",
+        "billede": "dessert2"
+  },
+    {
+        "kategori": "dessert",
+        "navn": "Creme brulé",
+        "pris": 50,
+        "kortbeskrivelse": "Det er jo en klassiker.",
+        "billede": "dessert3"
+  },
+    {
+        "kategori": "hovedret",
+        "navn": "Cremet risotto med svampe og foie gras",
+        "pris": 110,
+        "kortbeskrivelse": "Otto har lavet ris med svamp.",
+        "billede": "hovedret3"
+  },
+    {
+        "kategori": "forret",
+        "navn": "Kyllingeterrine med balsamicosirup",
+        "pris": 75,
+        "kortbeskrivelse": "Kylling og sirup!? Kan man godt det? ja det kan man da!",
+        "billede": "forret3"
+  },
+    {
+        "kategori": "forret",
+        "navn": "Paté med andebryst og champignon",
+        "pris": 80,
+        "kortbeskrivelse": "Leverpåsteg med and.",
+        "billede": "forret4"
+  },
+    {
+        "kategori": "hovedret",
+        "navn": "Kyllingesalat Nizza",
+        "pris": 90,
+        "kortbeskrivelse": "Man skal jo have salat en gang i mellem...",
+        "billede": "hovedret4"
+  },
+    {
+        "kategori": "dessert",
+        "navn": "Croissantsnitter med blåbær",
+        "pris": 50,
+        "kortbeskrivelse": "Croissanter, lækkert. Blåbær, lækkert.",
+        "billede": "dessert4"
+  }
+]
