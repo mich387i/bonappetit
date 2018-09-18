@@ -5,144 +5,90 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bon Appétit</title>
-    <style></style>
+    <link rel="stylesheet" href="style.css">
+    <!--    link til fonte-->
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Oswald" rel="stylesheet">
 </head>
 
 <body>
+    <header>
 
+        <img src="imgs/forside.jpg" alt="forret1">
+        <!--Burger menu start-->
+        <button class="burger">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </button>
+        <nav>
+            <ul>
+                <li><a href="index.html">Forside</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+            </ul>
+        </nav>
+        <!--        Burger menu slut-->
+    </header>
+    <!--       Logo øverst på siden med link til forsiden-->
+    <main>
+        <a href="index.html"><img src="imgs/restaurant-logo.png" alt="logo"></a>
+    </main>
 
-    <body>
-
-        <section id="modal">
-
-            <div id="modal-content">
-                <button>Close</button>
-                <h2 class="modal-navn"></h2>
-                <img class="modal-billede" src="" alt="">
-                <p class="modal-langbeskrivelse"></p>
-
+    <!--bokse med informationer, 2 bokse samlet i en stor for at gøre dem responsive-->
+    <div class="container">
+        <div class="content_left">
+            <h2>Nyt i denne måned</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam, dolorum blanditiis obcaecati quia odio optio!</p>
+            <div class="content_img">
+                <img src="imgs/hovedret3.jpg" alt="hovedret3">
             </div>
-        </section>
+        </div>
+
+
+        <div class="content_right">
+            <h2>Ugens tilbud</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam, dolorum blanditiis obcaecati quia odio optio!</p>
+            <div class="content_img">
+                <img src="imgs/dessert4.jpg" alt="dessert4">
+            </div>
+        </div>
+    </div>
+    <!--    Footer med informationer-->
+    <footer>
+        <div class="tider">
+            <p>Åbningstider:</p>
+            <p>Mandag-Torsdag: 15-22.</p>
+            <p>Fredag-Søndag: 12-23.</p>
+
+        </div>
+        <div class="adresse">
+            <p>Kultorvet 4</p>
+            <p>1175 København</p>
+        </div>
+
+    </footer>
+    <!--Java Script del starter her-->
+    <script>
+        //        Burger menu starter
+        function onLoad() {
 
 
 
-        <header>
-            <h1>Bon Appétit</h1>
-            <h2>Menu</h2>
-            <nav>
-                <button class="menu-item" data-menu="forretter">Forretter</button>
-                <button class="menu-item" data-menu="hovedretter">Hovedretter</button>
-                <button class="menu-item" data-menu="desserter">Desserter</button>
-            </nav>
-        </header>
-
-
-        <section class="ret-display"> </section>
-
-
-
-
-
-
-        <template class="ret-template">
-            <article>
-                <h2 class="ret-navn"> </h2>
-                <img class="ret-billede" src="" alt="">
-                <p class="ret-kortbeskrivelse"> </p>
-                <p class="ret-pris"> </p>
-                <p class="ret-kategori"> </p>
-                <p class="ret-kategori"> </p>
-            </article>
-        </template>
-
-        <script>
-            let retter = [];
-            let kategoriFilter = "alle";
-
-
-            document.addEventListener("DOMContentLoaded", start);
-
-            function start() {
-                hentJson();
-                forberedFiltrering();
-
+            function toggleMenu() {
+                //Funktionerne som gør at stregerne bliver til et kryds og at siden folder sig ud og menu punkterne kommer frem
+                document.querySelector(".burger").classList.toggle("change");
+                document.querySelector("nav").classList.toggle("show");
             }
+            document.querySelector(".burger").addEventListener("click", toggleMenu);
+            document.querySelector("ul").addEventListener("click", toggleMenu);
 
-            function forberedFiltrering() {
-                document.querySelectorAll("nav button").forEach(knap => {
-                    knap.addEventListener("click", () => {
-
-
-                        kategoriFilter = knap.getAttribute("data-menu");
-                        visRetter();
-                    });
-                });
-
-            }
+        }
 
 
-
-            async function hentJson() {
-                let jsonData = await fetch("menu.json");
-                retter = await jsonData.json();
-                visRetter();
-            }
-
-
-
-            function visRetter() {
-                // globale variabeler
-                let display = document.querySelector(".ret-display");
-                let temp = document.querySelector(".ret-template");
-
-                display.textContent = "";
-
-                retter.forEach(ret => {
-
-                    if (ret.kategori == kategoriFilter || kategoriFilter == "alle") {
-                        console.log(ret.kategori, kategoriFilter);
-
-
-                        let klon = temp.cloneNode(true).content;
-
-
-                        klon.querySelector("h2").textContent = ret.navn;
-                        klon.querySelector(".ret-billede").src = "imgs/" + ret.billede + ".jpg";
-                        ret.billede.jpg;
-
-                        klon.querySelector("img").addEventListener("click", () => {
-                            visModal(ret);
-                        });
-
-                        klon.querySelector(".ret-billede").alt = "billede af" + ret.navn;
-                        klon.querySelector(".ret-kortbeskrivelse").textContent = ret.kortbeskrivelse;
-                        klon.querySelector(".ret-pris").textContent = "Pris: " + ret.pris + ",-";
-
-
-                        display.appendChild(klon);
-                    }
-                });
-            }
-
-            function visModal(retten) {
-                let modal = document.querySelector("#modal");
-                modal.classList.add("vis");
-                modal.querySelector(".modal-navn").textContent = retten.navn;
-                modal.querySelector(".modal-billede").src = "small/" + retten.billede + "-sm.jpg";
-                retten.billede;
-                modal.querySelector(".modal-billede").alt = "Foto af" + retten.navn;
-
-
-                modal.querySelector(".modal-langbeskrivelse").textContent = retten.langbeskrivelse;
-
-
-                modal.querySelector("button").addEventListener("click", () => {
-                    modal.classList.remove("vis");
-
-
-                });
-            }
-        </script>
-    </body>
+        document.addEventListener("DOMContentLoaded", function(event) {
+            onLoad();
+        });
+    </script>
+</body>
 
 </html>

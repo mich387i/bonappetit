@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bon Appétit</title>
+    <link rel="stylesheet" href="style.css">
+    <!--    link til fonte-->
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Oswald" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <!--       Logo øverst på siden med link til forsiden-->
+        <div class="logo">
+            <a href="index.html"> <img src="imgs/restaurant-logo.png" alt="logo"></a>
+        </div>
+        <!--Burger menu start-->
+        <button class="burger">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </button>
+        <nav>
+            <ul>
+                <li><a href="index.html">Forside</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+            </ul>
+        </nav>
+
+        <!--        Burger menu slut-->
+        <!--       overskrift på siden-->
+        <h1>Kontakt</h1>
+
+    </header>
+
+
+
+    <!--bokse med informationer, 2 bokse samlet i en stor for at gøre dem responsive-->
+    <div class="container2">
+        <div class="content1">
+            <h1>Åbningstider</h1>
+            <p>Mandag-Torsdag: 15-22.</p>
+            <p>Fredag-Søndag: 12-23.</p>
+            <h1>Adresse</h1>
+            <p>Kultorvet 4</p>
+            <p>1175 København</p>
+        </div>
+
+
+
+        <div class="content2">
+            <h1>kontakt os</h1>
+            <p>Vil du reservere et bord? Ring til os, eller send en mail.</p>
+            <p>Telefon: +45 12 34 56 78</p>
+            <p>Mail: bon@appetit.dk</p>
+            <a href="https://www.facebook.com/?sk=nf"><img src="imgs/facebook.png" alt="facebook logo"></a>
+            <a href="https://www.instagram.com/?hl=da"><img src="imgs/instagram.png" alt="instagram logo"></a>
+
+        </div>
+    </div>
+
+    <!--Bunden af siden-->
+    <footer>
+        <p>Michelle Bang Rosendal</p>
+    </footer>
+    <!--Java Script del starter her-->
+    <script>
+        //        Burger menu starter
+        function onLoad() {
+
+            {
+
+                function toggleMenu() {
+                    //Funktionerne som gør at stregerne bliver til et kryds og at siden folder sig ud og menu punkterne kommer frem
+                    document.querySelector(".burger").classList.toggle("change");
+                    document.querySelector("nav").classList.toggle("show");
+                }
+                document.querySelector(".burger").addEventListener("click", toggleMenu);
+                document.querySelector("ul").addEventListener("click", toggleMenu);
+
+            }
+
+
+            document.addEventListener("DOMContentLoaded", function(event) {
+                onLoad();
+            });
+
+    </script>
+</body>
+
+</html>

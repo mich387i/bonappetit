@@ -1,0 +1,387 @@
+body {
+    margin: 0;
+}
+
+/*Modal start */
+#modal {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(211, 206, 206, 0.74);
+    text-align: center;
+    /*            display: none;*/
+    position: fixed;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 1s;
+
+}
+
+#modal-content {
+    background-color: lightgray;
+    width: 50vw;
+    height: 70vh;
+    margin: auto;
+
+}
+
+#modal.vis {
+    /*display: block;*/
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modal-billede {
+    width: 25vw;
+    ;
+}
+
+#modal-content button {
+    background-color: #f2f2f2;
+    border: none;
+    border-radius: 4px;
+    display: inline-block;
+    margin: 5px;
+    padding: 10px 15px;
+    color: black;
+    text-align: center;
+    cursor: pointer;
+    font-family: 'Amatic SC', bold;
+    font-size: 1.5em;
+}
+
+#modal-content button:hover {
+    background-color: lightgray;
+}
+
+/* Modal slut */
+
+/*Burger menu */
+header {
+    display: grid;
+    grid-template-columns: 1fr;
+
+}
+
+
+
+.burger {
+
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    background: #fff;
+    border: none;
+    justify-self: end;
+    background-color: rgba(255, 192, 203, 0);
+    z-index: 2;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: block;
+    position: relative;
+}
+
+li {
+    padding: 15px;
+    cursor: pointer;
+    text-align: center;
+
+}
+
+li a {
+    text-decoration: none;
+    color: #000000;
+
+}
+
+a:hover {
+    background-color: lightgray;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.bar1,
+.bar2,
+.bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #c4c4c4;
+    margin: 6px 0;
+    transition: 0.4s;
+
+
+}
+
+nav {
+    max-height: 0px;
+    overflow: hidden;
+    transition: 0.6s;
+    background: #f2f2f2;
+    color: #fff;
+    display: block;
+    position: relative;
+    font-family: 'Amatic SC', bold;
+    font-size: 1.5em;
+    margin-top: -4vw;
+}
+
+nav.show {
+    max-height: 500px;
+}
+
+
+
+.change .bar1 {
+    transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+
+
+.change .bar2 {
+    opacity: 0;
+}
+
+
+
+.change .bar3 {
+    transform: rotate(45deg) translate(-8px, -8px);
+}
+
+/*Burger menu slut */
+
+/*Forside start */
+
+header img {
+    display: block;
+    position: absolute;
+    width: 100%;
+}
+
+
+main img {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    width: 30vw;
+    background-color: rgba(211, 211, 211, 0.54);
+    margin-left: 35vw;
+
+
+}
+
+.container {
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 15px;
+    margin-top: 50vw;
+    text-align: center;
+
+
+}
+
+@media screen and (max-width: 500px) {
+    .container {
+
+        display: grid;
+
+        margin-right: 15px;
+        padding: 10px;
+        grid-gap: 10px;
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+}
+
+.content_left {
+
+
+    background-color: rgba(211, 211, 211, 0.35);
+    padding: 10px;
+    border-radius: 4px;
+    margin: 10px;
+
+}
+
+.content_right {
+
+
+    background-color: rgba(211, 211, 211, 0.35);
+    padding: 10px;
+    border-radius: 4px;
+    margin: 10px;
+
+}
+
+.content_img img {
+    width: 60%;
+
+}
+
+/* Forside slut */
+
+/* MENU start */
+
+.ret-display {
+    display: grid;
+    border: 1px solid(3);
+    margin-right: 15px;
+    padding: 10px;
+    grid-gap: 10px;
+    text-align: center;
+
+}
+
+@media screen and (min-width: 1000px) {
+    .ret-display {
+
+        display: grid;
+
+        margin-right: 15px;
+        padding: 10px;
+        grid-gap: 10px;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+.ret-billede {
+    width: 40vw;
+}
+
+.nav button {
+    background-color: lightgray;
+    border: none;
+    border-radius: 4px;
+    display: inline-block;
+    margin: 5px;
+    padding: 10px 15px;
+    color: black;
+    text-align: center;
+    cursor: pointer;
+    font-family: 'Amatic SC', bold;
+    font-size: 1.5em;
+
+
+}
+
+.nav {
+    text-align: center;
+}
+
+
+header {
+    background-color: rgba(211, 211, 211, 0.53);
+    text-align: center;
+
+}
+
+article {
+    background-color: rgba(211, 211, 211, 0.35);
+    padding: 10px;
+    border-radius: 4px;
+    margin: 10px;
+
+
+}
+
+button:hover {
+    background-color: #f2f2f2;
+}
+
+/* MENU Slut */
+
+/*KONTAKT start */
+header .logo img {
+    width: 20%;
+}
+
+.container2 {
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 15px;
+
+    text-align: center;
+
+
+}
+
+@media screen and (max-width: 500px) {
+    .container2 {
+
+        display: grid;
+
+        margin-right: 15px;
+        padding: 10px;
+        grid-gap: 10px;
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+}
+
+.content1 {
+
+    background-color: rgba(211, 211, 211, 0.35);
+    padding: 10px;
+    border-radius: 4px;
+    margin: 10px;
+
+}
+
+.content2 {
+
+
+    background-color: rgba(211, 211, 211, 0.35);
+    padding: 10px;
+    border-radius: 4px;
+    margin: 10px;
+
+}
+
+.content2 img {
+    width: 7vw;
+}
+
+
+/*KONTAKT slut */
+
+h1 {
+    font-family: 'Amatic SC', bold;
+
+}
+
+h2 {
+    font-family: 'Amatic SC', bold;
+
+}
+
+p {
+    font-family: 'Oswald', extralight;
+}
+
+/* FOOTER start */
+footer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 15px;
+    text-align: center;
+    background-color: #f2f2f2;
+}
+
+.tider {
+    margin: 15px;
+    padding: 5px;
+    font-size: 0.8em;
+}
+
+.adresse {
+    margin: 15px;
+    padding: 5px;
+    font-size: 0.8em;
+}
+
+/* FOOTER slut */
