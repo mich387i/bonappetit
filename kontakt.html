@@ -8,7 +8,8 @@
     <title>Bon Appétit</title>
     <link rel="stylesheet" href="style.css">
     <!--    link til fonte-->
-    <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Oswald" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Oswald:200" rel="stylesheet">
+
 </head>
 
 <body>
@@ -56,7 +57,9 @@
             <h1>kontakt os</h1>
             <p>Vil du reservere et bord? Ring til os, eller send en mail.</p>
             <p>Telefon: +45 12 34 56 78</p>
-            <p>Mail: bon@appetit.dk</p>
+            <p>
+                <a href="mailto:someone@eksempel.dk">Send Mail</a>
+            </p>
             <a href="https://www.facebook.com/?sk=nf"><img src="imgs/facebook.png" alt="facebook logo"></a>
             <a href="https://www.instagram.com/?hl=da"><img src="imgs/instagram.png" alt="instagram logo"></a>
 
@@ -72,23 +75,22 @@
         //        Burger menu starter
         function onLoad() {
 
-            {
 
-                function toggleMenu() {
-                    //Funktionerne som gør at stregerne bliver til et kryds og at siden folder sig ud og menu punkterne kommer frem
-                    document.querySelector(".burger").classList.toggle("change");
-                    document.querySelector("nav").classList.toggle("show");
-                }
-                document.querySelector(".burger").addEventListener("click", toggleMenu);
-                document.querySelector("ul").addEventListener("click", toggleMenu);
 
+            function toggleMenu() {
+                //Funktionerne som gør at stregerne bliver til et kryds og at siden folder sig ud og menu punkterne kommer frem
+                document.querySelector(".burger").classList.toggle("change");
+                document.querySelector("nav").classList.toggle("show");
             }
+            document.querySelector(".burger").addEventListener("click", toggleMenu);
+            document.querySelector("ul").addEventListener("click", toggleMenu);
+
+        }
 
 
-            document.addEventListener("DOMContentLoaded", function(event) {
-                onLoad();
-            });
-
+        document.addEventListener("DOMContentLoaded", function(event) {
+            onLoad();
+        });
     </script>
 </body>
 

@@ -97,9 +97,9 @@ li a {
 
 }
 
-a:hover {
+li a:hover {
     background-color: lightgray;
-    padding: 15px;
+    padding: 10px;
     border-radius: 5px;
 }
 
@@ -108,9 +108,10 @@ a:hover {
 .bar3 {
     width: 35px;
     height: 5px;
-    background-color: #c4c4c4;
+    background-color: #818181;
     margin: 6px 0;
     transition: 0.4s;
+    border-radius: 2px;
 
 
 }
@@ -177,7 +178,7 @@ main img {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 15px;
-    margin-top: 50vw;
+    margin-top: 44vw;
     text-align: center;
 
 
@@ -288,7 +289,7 @@ article {
 
 }
 
-button:hover {
+.nav button:hover {
     background-color: #f2f2f2;
 }
 
@@ -346,6 +347,28 @@ header .logo img {
     width: 7vw;
 }
 
+.content2 a {
+    text-decoration: none;
+    color: black;
+}
+
+.content2 p a {
+    background-color: lightgray;
+    background-color: lightgray;
+    border: none;
+    border-radius: 4px;
+    display: inline-block;
+    margin: 5px;
+    padding: 10px 15px;
+    color: black;
+    text-align: center;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.content2 p a:hover {
+    background-color: #f2f2f2;
+}
 
 /*KONTAKT slut */
 
@@ -360,7 +383,7 @@ h2 {
 }
 
 p {
-    font-family: 'Oswald', extralight;
+    font-family: 'Oswald', 'extra-light', sans-serif;
 }
 
 /* FOOTER start */
