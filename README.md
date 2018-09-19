@@ -4,4 +4,4 @@ Link til github:
 https://github.com/mich387i/bonappetit.git
 
 Link til website:
-banggodt.dk/kea/05-dynamisk_web/bonappetit/index.html
+http://banggodt.dk/kea/05-dynamisk_web/bonappetit/index.html
